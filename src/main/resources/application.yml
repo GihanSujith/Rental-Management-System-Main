@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/rental_sys
+    username: root
+    password: malka123
+  jpa:
+    hibernate:
+      ddl-auto: update
