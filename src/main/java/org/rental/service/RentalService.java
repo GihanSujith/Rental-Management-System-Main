@@ -11,4 +11,6 @@ public interface RentalService {
 
     void deleteRentalById(Integer rentalId);
 
+    void updateRental(Rental rental);
+
 }

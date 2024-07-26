@@ -33,4 +33,8 @@ public class RentalController {
         service.deleteRentalById(rentalId);
         return "deleted";
     }
+    @PutMapping()
+    public void update(@RequestBody Rental rental){
+        service.updateRental(rental);
+    }
 }

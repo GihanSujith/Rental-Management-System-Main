@@ -51,4 +51,10 @@ public class RentalServiceImpl implements RentalService {
             repository.deleteById(rentalId);
         }
     }
+    @Override
+    public void updateRental(Rental rental) {
+        if (repository.findById(rental.getRentalId()).isPresent()){
+            repository.save(new ObjectMapper().convertValue(rental,RentalEntity.class));
+        }
+    }
 }
