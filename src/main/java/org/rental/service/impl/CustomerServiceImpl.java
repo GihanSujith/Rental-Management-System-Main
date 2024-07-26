@@ -6,10 +6,12 @@ import org.rental.entity.CustomerEntity;
 import org.rental.repository.CustomerRepository;
 import org.rental.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class CustomerServiceImpl implements CustomerService {
 
 
