@@ -44,6 +44,12 @@ public class HardwareItemServiceImpl implements HardwareService {
                     mapper.convertValue(HardwareItemEntity, HardwareItem.class));
         });
         return hardwareItemList;
+    }
 
+    @Override
+    public void deleteHardwareItemById(Integer itemId) {
+        if (repository.existsById(itemId)){
+            repository.deleteById(itemId);
+        }
     }
 }

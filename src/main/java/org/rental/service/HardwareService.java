@@ -9,4 +9,6 @@ public interface HardwareService {
 
     List<HardwareItem> retriveHardwareItem();
 
+    void deleteHardwareItemById(Integer itemId);
+
 }

@@ -27,4 +27,10 @@ public class HardwareController {
         return service.retriveHardwareItem();
     }
 
+    @DeleteMapping("/delete-hard/{itemId}")
+    public String delete(@PathVariable Integer itemId){
+        service.deleteHardwareItemById(itemId);
+        return "deleted";
+    }
+
 }
