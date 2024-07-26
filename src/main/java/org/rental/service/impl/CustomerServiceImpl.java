@@ -7,6 +7,9 @@ import org.rental.repository.CustomerRepository;
 import org.rental.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CustomerServiceImpl implements CustomerService {
     
     @Autowired
@@ -26,5 +29,18 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setCustomerId(savedCustomer.getCustomerId());
 
         return customer;
+    }
+
+    @Override
+    public List<Customer> retriveCustomer() {
+        final Iterable<CustomerEntity> allCustomer = repository.findAll();
+
+        List<Customer> customerList = new ArrayList<>();
+
+        allCustomer.forEach(customerEntity -> {
+            customerList.add(
+                    mapper.convertValue(customerEntity, Customer.class));
+        });
+        return customerList;
     }
 }
