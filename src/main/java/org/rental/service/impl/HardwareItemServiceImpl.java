@@ -52,4 +52,11 @@ public class HardwareItemServiceImpl implements HardwareService {
             repository.deleteById(itemId);
         }
     }
+
+    @Override
+    public void updateHardwareItem(HardwareItem hardwareItem) {
+        if (repository.findById(hardwareItem.getItemId()).isPresent()){
+            repository.save(new ObjectMapper().convertValue(hardwareItem,HardwareItemEntity.class));
+        }
+    }
 }

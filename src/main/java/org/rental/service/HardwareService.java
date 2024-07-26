@@ -11,4 +11,6 @@ public interface HardwareService {
 
     void deleteHardwareItemById(Integer itemId);
 
+    void updateHardwareItem(HardwareItem hardwareItem);
+
 }
