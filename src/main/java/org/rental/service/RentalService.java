@@ -9,4 +9,6 @@ public interface RentalService {
 
     List<Rental> retriveRental();
 
+    void deleteRentalById(Integer rentalId);
+
 }

@@ -27,4 +27,10 @@ public class RentalController {
     List<Rental> retrive(){
         return service.retriveRental();
     }
+
+    @DeleteMapping("/delete-rent/{rentalId}")
+    public String delete(@PathVariable Integer rentalId){
+        service.deleteRentalById(rentalId);
+        return "deleted";
+    }
 }

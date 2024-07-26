@@ -14,6 +14,7 @@ import java.util.List;
 @Service
 public class RentalServiceImpl implements RentalService {
 
+
     @Autowired
     RentalRepository repository;
 
@@ -43,5 +44,11 @@ public class RentalServiceImpl implements RentalService {
                     mapper.convertValue(rentalEntity, Rental.class));
         });
         return rentalList;
+    }
+    @Override
+    public void deleteRentalById(Integer rentalId) {
+        if (repository.existsById(rentalId)){
+            repository.deleteById(rentalId);
+        }
     }
 }
