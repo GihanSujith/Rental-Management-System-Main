@@ -8,6 +8,9 @@ import org.rental.service.RentalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class RentalServiceImpl implements RentalService {
 
@@ -27,5 +30,18 @@ public class RentalServiceImpl implements RentalService {
 
         rental.setRentalId(savedRent.getRentalId());
         return rental;
+    }
+
+    @Override
+    public List<Rental> retriveRental() {
+        final Iterable<RentalEntity> allRental = repository.findAll();
+
+        List<Rental> rentalList = new ArrayList<>();
+
+        allRental.forEach(rentalEntity -> {
+            rentalList.add(
+                    mapper.convertValue(rentalEntity, Rental.class));
+        });
+        return rentalList;
     }
 }

@@ -5,6 +5,8 @@ import org.rental.dto.Rental;
 import org.rental.service.RentalService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/rental")
 @CrossOrigin
@@ -19,5 +21,10 @@ public class RentalController {
     @PostMapping()
     Rental save(@RequestBody Rental rental){
         return service.createRental(rental);
+    }
+
+    @GetMapping ()
+    List<Rental> retrive(){
+        return service.retriveRental();
     }
 }
