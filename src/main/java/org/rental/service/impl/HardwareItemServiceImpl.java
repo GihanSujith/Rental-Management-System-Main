@@ -39,10 +39,10 @@ public class HardwareItemServiceImpl implements HardwareService {
 
         List<HardwareItem> hardwareItemList = new ArrayList<>();
         
-        allHardwareItem.forEach(hardwareItemEntity -> {
-            hardwareItemList.add(
-                    mapper.convertValue(HardwareItemEntity, HardwareItem.class));
-        });
+       allHardwareItem.forEach(hardwareItemEntity -> {
+           hardwareItemList.add(
+                   mapper.convertValue(hardwareItemEntity, HardwareItem.class));
+       });
         return hardwareItemList;
     }
 
