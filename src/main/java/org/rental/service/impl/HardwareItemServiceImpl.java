@@ -8,6 +8,9 @@ import org.rental.service.HardwareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class HardwareItemServiceImpl implements HardwareService {
 
@@ -28,5 +31,19 @@ public class HardwareItemServiceImpl implements HardwareService {
         hardwareItem.setItemId(savedHardwareItem.getItemId());
 
         return hardwareItem;
+    }
+
+    @Override
+    public List<HardwareItem> retriveHardwareItem() {
+        final Iterable<HardwareItemEntity> allHardwareItem = repository.findAll();
+
+        List<HardwareItem> hardwareItemList = new ArrayList<>();
+        
+        allHardwareItem.forEach(hardwareItemEntity -> {
+            hardwareItemList.add(
+                    mapper.convertValue(HardwareItemEntity, HardwareItem.class));
+        });
+        return hardwareItemList;
+
     }
 }

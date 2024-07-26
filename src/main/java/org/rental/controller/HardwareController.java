@@ -4,6 +4,8 @@ import org.rental.dto.HardwareItem;
 import org.rental.service.HardwareService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/hardwareItem")
 @CrossOrigin
@@ -18,6 +20,11 @@ public class HardwareController {
     @PostMapping()
     HardwareItem save(@RequestBody HardwareItem hardwareItem){
        return service.createHardwareItem(hardwareItem);
+    }
+
+    @GetMapping()
+    List<HardwareItem> retrive(){
+        return service.retriveHardwareItem();
     }
 
 }
