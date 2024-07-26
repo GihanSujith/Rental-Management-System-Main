@@ -26,4 +26,10 @@ public class CustomerController {
     List<Customer> retrive(){
         return service.retriveCustomer();
     }
+
+    @DeleteMapping("/delete-cust/{customerId}")
+    public String delete(@PathVariable Integer customerId){
+        service.deleteCudtomerById(customerId);
+        return "Deleted";
+    }
 }

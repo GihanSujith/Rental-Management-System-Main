@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerServiceImpl implements CustomerService {
-    
+
+
     @Autowired
     CustomerRepository repository;
     
@@ -42,5 +43,12 @@ public class CustomerServiceImpl implements CustomerService {
                     mapper.convertValue(customerEntity, Customer.class));
         });
         return customerList;
+    }
+
+    @Override
+    public void deleteCudtomerById(Integer customerId) {
+        if (repository.existsById(customerId)){
+            repository.deleteById(customerId);
+        }
     }
 }

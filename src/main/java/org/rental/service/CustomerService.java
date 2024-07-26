@@ -9,4 +9,7 @@ public interface CustomerService {
 
     List<Customer> retriveCustomer();
 
+
+    void deleteCudtomerById(Integer customerId);
+
 }
